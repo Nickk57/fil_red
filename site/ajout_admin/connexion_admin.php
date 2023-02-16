@@ -8,7 +8,7 @@
         $mdp = $_POST["password"];
 
         $query = "SELECT * FROM admin WHERE email = :email";
-        $req = $bdd->prepare($query);
+        $req = $db->prepare($query);
         $req->bindValue(':email', $email, PDO::PARAM_STR);
         $req->execute();
         $reponse = $req->fetch();
@@ -16,7 +16,7 @@
         $hash = $reponse["mdp"];
 
         if (password_verify($mdp, $hash)) {
-            header("location: index.php");
+            header("location: ../index.php");
         }
         else {
             echo 'le mot de passe est invalide. ';
