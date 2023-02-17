@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    include('connexion.php');
+    include_once('connexion.php');
 
     if (isset($_POST["email"]) && !empty($_POST["email"]) && isset($_POST["password"]) && !empty($_POST["password"]) && isset($_POST["verifie"]) && !empty($_POST["verifie"])) {
         $email = htmlspecialchars($_POST['email']);
@@ -16,7 +16,7 @@
         $hash = $reponse["mdp"];
 
         if (password_verify($mdp, $hash)) {
-            header("location: ../index.php");
+            header("location: index.php");
         }
         else {
             echo 'le mot de passe est invalide. ';

@@ -1,19 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="steelstyle" style="text/css" href="style/style.css">
-    <title>Document</title>
-</head>
-<body>
-    <?php 
-        include_once('include/bar_nav.php');
-        include_once('front/produit.php');
+<?php
+    session_start();
+    include_once('ajout_admin/connexion.php');
+    include_once('include/bar_nav.php');
+    include_once('front/produit.php');
     
-    ?>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-</body>
-</html>
+    try {
+        if (isset($_GET['']) & $_GET[''] !== '') {
+            if ($_GET[''] === 'post') {
+                if (isset($_GET['id']) && $_GET['id'] > 0){
+                    $identifier = $_GET['id'];
+                    post($identifier);
+                }
+                else {
+                    throw new Exception('Aucun identifiant de admin envoyé');
+                }
+            }
+            elseif ($_GET[''] === 'addAdmin') {
+                if (isset($_GET['id']) && $_GET['id'] > 0){
+                    $identifier = $_GET['id'];
+                    addAdmin($identifier, $_POST);
+                }
+                else {
+                    throw new Exception('Aucun identifiant d\'admin envoyer');
+                }
+            }
+            else {
+                throw new Exception('Aucun identifiant d\'admin anvoyer');
+            }
+        }
+        else {
+            homepage();
+        }
+    }
+    catch (Exception $e) {
+        $errorMessage = $e->getMessage();
+
+        require('templates/error.php');
+    }

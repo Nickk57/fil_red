@@ -33,6 +33,6 @@
       <a class="nav-link disabled">S'abonner ></a>
     </li>
     <li>
-        <a class="nav-link" href="../../site/ajout_admin/lagout.php">Se deconnect</a>
+        <a class="nav-link" href="lagout_admin.php">Se deconnect</a>
     </li>
   </ul>
