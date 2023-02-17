@@ -1,27 +1,9 @@
 <?php 
     session_start();
-    include_once('connexion.php');
-
-    if (isset($_POST["email"]) && !empty($_POST["email"]) && isset($_POST["password"]) && !empty($_POST["password"]) && isset($_POST["verifie"]) && !empty($_POST["verifie"])) {
-        $email = htmlspecialchars($_POST['email']);
-        $_SESSION["email"] = $email;
-        $mdp = $_POST["password"];
-
-        $query = "SELECT * FROM admin WHERE email = :email";
-        $req = $db->prepare($query);
-        $req->bindValue(':email', $email, PDO::PARAM_STR);
-        $req->execute();
-        $reponse = $req->fetch();
-        var_dump($reponse);
-        $hash = $reponse["mdp"];
-
-        if (password_verify($mdp, $hash)) {
-            header("location: index.php");
-        }
-        else {
-            echo 'le mot de passe est invalide. ';
-        }
-    }
+    include_once('../model/model.php');
+    adminConnect();
+    
+    
     
 ?>
 <!DOCTYPE html>
@@ -31,6 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link reel="stylesheet" style="text/css" href="style/style.css">
     <title>Document</title>
 </head>
 <body>
