@@ -3,8 +3,6 @@
     include_once('../model/model.php');
     adminConnect();
     
-    
-    
 ?>
 <!DOCTYPE html>
 <html lang="en">

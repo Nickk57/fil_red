@@ -5,7 +5,7 @@
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">gestion des categorie</a>
         <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">ajout categorie</a></li>
+            <li><a class="dropdown-item" href="../model/insert_category.php">ajout categorie</a></li>
             <li><a class="dropdown-item" href="#">grestion des categorie</a></li>
             <li><a class="dropdown-item" href="#">supprimer des categorie</a></li>
         </ul>
@@ -35,7 +35,7 @@
         </ul>
     </li>
     <li class="nav-item">
-      <a class="nav-link disabled">S'abonner ></a>
+      <a class="nav-link" href="../ajout_admin/connexion_admin.php">S'abonner ></a>
     </li>
     <li>
         <a class="nav-link" href="ajout_admin/lagout_admin.php">Se deconnect</a>
