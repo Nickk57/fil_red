@@ -1,5 +1,4 @@
 <?php
-session_start();
 ?>
 <div class="">
     <h1>Saisie des définition</h1>

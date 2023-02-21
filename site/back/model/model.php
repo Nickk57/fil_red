@@ -72,14 +72,6 @@ function adminConnect() {
 
 //  les function ajout
 
-function ajoutPhoto() {
-    $photo = dbConnect();
-
-    // if (isset($_POST['']) && !empty($_POST['']))
-}
-function delPhoto(){
-    $photo = dbConnect();
-}
 function ajoutCategorie() {
     $categorie = dbConnect();
 
@@ -246,4 +238,73 @@ function supCategorie() {
         $req = $categorie->prepare($query);
         $req->execute();
         $reponse = $req->fetch();
+}
+// function supSubCategory() {
+//     $ssCategorie = dbConnect();
+
+//     if(isset($_POST['id'])) {
+//         $id = strval($_GET['id'])
+
+//         $query = "DELETE FROM sub_category WHERE id = :id";
+//         $req = $ssCategorie->prepare($query);
+//         $req->bindValues('id', $id, PDO::PARAM_INT);
+//         $req->execute();
+//         $msg = "sous-categorie supprimer !";
+//     }
+//         $query = "SELECT FROM sub_category";
+//         $req = $ssCategorie->prepare($query);
+//         $req->execute();
+//         $reponse = $req->fetch();
+// }
+function supProduct() {
+    $coProduit = dbConnect();
+
+    if(isset($_POST['id'])) {
+        $id = strval($_GET['id']);
+
+        $query = "DELETE FROM product WHERE id = :id";
+        $req = $coProduit->prepare($query);
+        $req->bindValues('id', $id, PDO::PARAM_INT);
+        $req->execute();
+        $reponse = $req->fetch();
+    }
+}
+function supPhoto() {
+    $coPhoto = dbConnect();
+
+    if(isset($_POST['id'])) {
+        $id = strval($_GET['id']);
+
+        $query = "DELETE FROM picture WHERE id = :id";
+        $req = $coPhoto->prepare($query);
+        $req->bindValues('id', $id, PDO::PARAM_INT);
+        $req->execute();
+        $reponse = $req->fetch();
+    }
+}
+function supKindGrind() {
+    $coKind = dbConnect();
+
+    if(isset($_POST['id'])) {
+        $id = strval($_GET['id']);
+
+        $query = "DELETE FROM kind_grind WHERE id = :id";
+        $req = $coKind->prepare($query);
+        $req->bindValues('id', $id, PDO::PARAM_INT);
+        $req->execute();
+        $reponse = $req->fetch();
+    }
+}
+function supWeight() {
+    $coWeight = dbConnect();
+
+    if(isset($_POST['id'])) {
+        $id = strval($_GET['id']);
+
+        $query = "DELETE FROM product_weight WHERE id = :id";
+        $req = $coWeight->prepare($query);
+        $req->bindValues('id', $id, PDO::PARAM_INT);
+        $req->execute();
+        $reponse = $req->fetch();
+    }
 }

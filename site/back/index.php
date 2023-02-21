@@ -3,19 +3,11 @@ session_start();
 if(!isset($_SESSION["email"])) {
     header("location: include/connexion_admin.php");
 }
+require_once('controllers/ajout_photos.php');
 require_once('model/model.php');
+
 dbConnect();
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link reel="stylesheet" style="text/css" href="style/style.css">
-    <title>Document</title>
-</head>
 <body>
     <?php
         
@@ -23,7 +15,51 @@ dbConnect();
         // require_once('templates/homepage.php');
         require_once('include/bar_nav.php');
     ?>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
-</body>
-</html>
+    <?php
+        if(isset($_GET['page']) && $_GET['page'] !=NULL) {
+            $page = strval($_GET['page']);
+
+            if($page == 1){
+                include_once('model/insert_category.php');
+            }
+            elseif($page == 2){
+                include_once("");
+            }
+            elseif($page == 3){
+                include_once("");
+            }
+            elseif($page == 4){
+                include_once("");
+            }
+            elseif($page == 5){
+                include_once("");
+            }
+            elseif($page == 6){
+                include_once("");
+            }
+            elseif($page == 7){
+                include_once("");
+            }
+            elseif($page == 8){
+                include_once("");
+            }
+            elseif($page == 9){
+                include_once("");
+            }
+            elseif($page == 10){
+                include_once("include/ajout_photos.php");
+            }
+            elseif($page == 11){
+                include_once("");
+            }
+            elseif($page == 12){
+                include_once("");
+            }
+            else {
+                include_once("index.php");
+            }
+        }
+        else {
+            include_once("index.php");
+        }
+    ?>
