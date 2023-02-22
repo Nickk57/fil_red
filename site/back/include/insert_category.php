@@ -1,7 +1,7 @@
 <?php
 ?>
 <div class="">
-    <h1>Saisie des définition</h1>
+    <h1>Ajoute une category</h1>
 </div>
 <div class="continer">
     <form method="POST" action="#">

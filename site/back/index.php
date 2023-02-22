@@ -20,7 +20,7 @@ dbConnect();
             $page = strval($_GET['page']);
 
             if($page == 1){
-                include_once('model/insert_category.php');
+                include_once('include/insert_category.php');
             }
             elseif($page == 2){
                 include_once("");

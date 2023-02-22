@@ -17,6 +17,6 @@ function ajoutPhotos() {
         throw new Exception("Impossible d'ajoute une image !");
     }
     else {
-        header('Location: index.php?pages=10');
+        header('Location: index.php?page=10');
     }
 }

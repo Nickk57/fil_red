@@ -18,6 +18,18 @@ function ajoutPhoto(string $name, string $chemin) {
                 if(in_array($extension, $allowedExtension)) {
                     move_uploaded_file($_FILES['photos']['tmp_name'], $uploads_dir. basename($_FILES['photos']['name']));
                     $photo = $uploads_dir . basename($_FILES['photos']['name']);
+
+                    $identifiant = time();
+                    $nom = htmlspecialchars($_POST['name']);
+                    $chemin = htmlspecialchars($_POST['chemin']);
+            
+                    $query = "INSERT * FROM picture VALUES(:id, :nom, :chemin)";
+                    $req = $coPhoto->prepare($query);
+                    $req->bindValue(':id', '', PDO::PARAM_INT);
+                    $req->bindValue(':nom', $nom, PDO::PARAM_STR);
+                    $req->bindValue(':chemin', $chemin, PDO::PARAM_STR);
+                    $req->execute();
+                    $reponse = $req->fetch();
                     echo "L'envoi a bien été effectué !";
                 }
                 else {
@@ -35,13 +47,37 @@ function ajoutPhoto(string $name, string $chemin) {
             exit;
         }
     }
+    // if(isset($_POST['name'])) {
+    //     $identifiant = time();
+    //     $nom = htmlspecialchars($_POST['name']);
+    //     $chemin = htmlspecialchars($_POST['chemin']);
+
+    //     $query = "INSERT * FROM picture VALUES(':id', ':nom', ':chemin')";
+    //     $req = $coPhoto->prepare($query);
+    //     $req->bindValue(':id', '', PDO::PARAM_INT);
+    //     $req->bindValue(':nom', $nom, PDO::PARAM_STR);
+    //     $req->bindValue(':chemin', $chemin, PDO::PARAM_STR);
+    //     $req->execute();
+    //     $reponse = $req->fetch();
+
+    // }
     
 }
 function gestionPhotos() {
 
 }
-function supPhotos() {
+function supPhoto() {
+    $coPhoto = dbConnect();
 
+    if(isset($_POST['id'])) {
+        $id = strval($_GET['id']);
+
+        $query = "DELETE FROM picture WHERE id = :id";
+        $req = $coPhoto->prepare($query);
+        $req->bindValues('id', $id, PDO::PARAM_INT);
+        $req->execute();
+        $reponse = $req->fetch();
+    }
 }
 function photoDbConnect() {
     try {
