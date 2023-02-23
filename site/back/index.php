@@ -5,6 +5,7 @@ if(!isset($_SESSION["email"])) {
 }
 require_once('controllers/ajout_photos.php');
 require_once('model/model.php');
+require_once('templates/layout.php');
 
 dbConnect();
 ?>
@@ -23,16 +24,16 @@ dbConnect();
                 include_once('include/insert_category.php');
             }
             elseif($page == 2){
-                include_once("");
+                include_once("include/gestion_category.php");
             }
             elseif($page == 3){
                 include_once("");
             }
             elseif($page == 4){
-                include_once("");
+                include_once("controllers/ajout_subcategory.php");
             }
             elseif($page == 5){
-                include_once("");
+                include_once("include/gestion_subcategory.php");
             }
             elseif($page == 6){
                 include_once("");

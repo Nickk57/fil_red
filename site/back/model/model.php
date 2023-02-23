@@ -21,24 +21,24 @@ function ajoutAdmin() {
 
     if (isset($_POST['submit'])) {
         if (!isset($_POST['email']) || (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) 
-        || (!isset($_POST['mdp']) || empty($_POST['mdp'])) 
-        || (!isset($_POST['nom']) || empty($_POST['nom'])) 
-        || (!isset($_POST['prenom']) || empty($_POST['prenom']))) {
+        || (!isset($_POST['password']) || empty($_POST['password'])) 
+        || (!isset($_POST['name']) || empty($_POST['name'])) 
+        || (!isset($_POST['first_name']) || empty($_POST['first_name']))) {
             echo 'Il faut remplir tous les champs pour soumettre le formulaire.';
             exit;
         }
         else {
             $email = $_POST['email'];
-            $mdp = $_POST['mdp'];
-            $prenom = strip_tags($_POST['prenom']);
-            $nom = strip_tags($_POST['nom']);
+            $mdp = $_POST['password'];
+            $prenom = strip_tags($_POST['first_name']);
+            $nom = strip_tags($_POST['name']);
 
-            $query = 'INSERT INTO admin(email, nom, prenom, mdp) VALUES (:email, :nom, :prenom, :mdp)';
+            $query = 'INSERT INTO admin(email, name, first_name, password) VALUES (:email, :name, :first_name, :password)';
             $statement = $admin->prepare($query);
             $statement->bindValue(':email', $email, PDO::PARAM_STR);
-            $statement->bindValue(':nom', $nom, PDO::PARAM_STR);
-            $statement->bindValue(':prenom', $prenom, PDO::PARAM_STR);
-            $statement->bindValue(':mdp', password_hash($mdp, PASSWORD_DEFAULT), PDO::PARAM_STR);
+            $statement->bindValue(':name', $nom, PDO::PARAM_STR);
+            $statement->bindValue(':first_name', $prenom, PDO::PARAM_STR);
+            $statement->bindValue(':password', password_hash($mdp, PASSWORD_DEFAULT), PDO::PARAM_STR);
             $reponse = $statement->execute();
             return($msg > 0);
         }
@@ -59,7 +59,7 @@ function adminConnect() {
         $req->execute();
         $reponse = $req->fetch();
         // var_dump($reponse);
-        $hash = $reponse["mdp"];
+        $hash = $reponse["password"];
 
         if (password_verify($mdp, $hash)) {
             header("location: ../index.php");

@@ -2,17 +2,22 @@
 function ajoutSsCategorie() {
     $ssCategorie = dbConnect();
 
-    if (isset($_POST['nom'])) {
-        $nom = htmlspecialchars($_POST['nom']);
-        $category = $_POST['id_category'];
+    if (isset($_POST['submit'])) {
+        if (isset($_POST['name']) || empty($_POST['name'])) {
+            echo 'Il faut mettre un nom pour soumettre le formulaire.';
+        }
+        else {
+            $nom = htmlspecialchars($_POST['name']);
+            $category = $_POST['id_category'];
+            $photo = $_POST['id_photo'];
 
-        $query = "INSERT FROM sub_category VALUES(:id, :nom, :id_category)";
-        $req = $ssCategorie->prepare($query);
-        $req->bindValue(':id','', PDO::PARAM_INT);
-        $req->bindValue(':id_category', $category, PDO::PARAM_INT);
-        $req->bindValue(':nom', $nom, PDO::PARAM_STR);
-        $req->execute();
-        $reponse = $req->fetch();
+            $query = "INSERT FROM sub_category VALUES(:name, :idf_photo, :id_category)";
+            $req = $ssCategorie->prepare($query);
+            $req->bindValue(':id_photo', $photo, PDO::PARAM_INT);
+            $req->bindValue(':id_category', $category, PDO::PARAM_INT);
+            $req->bindValue(':name', $nom, PDO::PARAM_STR);
+            $reponse = $req->execute();
+        }
     }
 }
 function gestionSsCategorie() {
@@ -33,20 +38,20 @@ function gestionSsCategorie() {
     }
     $nom_sscategory = $req->fetch();
 }
-function supSubCategory() {
-    $ssCategorie = dbConnect();
+// function supSubCategory() {
+//     $ssCategorie = dbConnect();
 
-    if(isset($_POST['id'])) {
-        $id = strval($_GET['id'])
+//     if(isset($_POST['id'])) {
+//         $id = strval($_GET['id'])
 
-        $query = "DELETE FROM sub_category WHERE id = :id";
-        $req = $ssCategorie->prepare($query);
-        $req->bindValues('id', $id, PDO::PARAM_INT);
-        $req->execute();
-        $msg = "sous-categorie supprimer !";
-    }
-        $query = "SELECT FROM sub_category";
-        $req = $ssCategorie->prepare($query);
-        $req->execute();
-        $reponse = $req->fetch();
-}
+//         $query = "DELETE FROM sub_category WHERE id = :id";
+//         $req = $ssCategorie->prepare($query);
+//         $req->bindValues('id', $id, PDO::PARAM_INT);
+//         $req->execute();
+//         $msg = "sous-categorie supprimer !";
+//     }
+//         $query = "SELECT FROM sub_category";
+//         $req = $ssCategorie->prepare($query);
+//         $req->execute();
+//         $reponse = $req->fetch();
+// }

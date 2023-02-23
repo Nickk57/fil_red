@@ -35,7 +35,7 @@
         </ul>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="../ajout_admin/connexion_admin.php">S'abonner ></a>
+      <a class="nav-link" href="ajout_admin/ajout_admin.php">S'abonner ></a>
     </li>
     <li>
         <a class="nav-link" href="ajout_admin/lagout_admin.php">Se deconnect</a>
