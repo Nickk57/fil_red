@@ -30,7 +30,7 @@ dbConnect();
                 include_once("include/sup_category.php");
             }
             elseif($page == 4){
-                include_once("controllers/ajout_subcategory.php");
+                include_once("templates/ajout_subcategory.php");
             }
             elseif($page == 5){
                 include_once("include/gestion_subcategory.php");
@@ -39,7 +39,7 @@ dbConnect();
                 include_once("");
             }
             elseif($page == 7){
-                include_once("");
+                include_once("templates/ajoutProduct.php");
             }
             elseif($page == 8){
                 include_once("");

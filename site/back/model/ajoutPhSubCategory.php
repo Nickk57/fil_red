@@ -2,15 +2,16 @@
     function ajoutPhSubCategory(string $namePicture, string $chemin) {
         $coPhoto = dbConnect();
 
-        if (isset($_POST['nom'])  || !empty($_POST['nom'])
-        || isset($_POST['chemin']) || !empty($_POST['chemin'])) {
+        if (!isset($_POST['nom'])  || empty($_POST['nom'])
+        || !isset($_POST['chemin']) || empty($_POST['chemin'])) {
             echo "Il faut un nom valide !";
             exit;
         }
         else {
             $uploads_dir = 'uploads/';
+            $nom = $_POST['nom'];
 
-            if(isset($_POST['photo']) && $_FILES['photo']['error'] == 0) {
+            if(isset($_FILES['photo']) && $_FILES['photo']['error'] == 0) {
                 if($_FILES['photo']['size'] <= 1000000) {
                     $fileInfo = pathinfo($_FILES['photo']['name']);
                     $extention = $fileInfo['extention'];
@@ -24,7 +25,7 @@
                         $nom = htmlspecialchars($_POST['name']);
                         $chemin = htmlspecialchars($_POST['chemin']);
 
-                        $query = "INSERT * FROM sub_category- VALUES (:id, :nom :chemin)";
+                        $query = "INSERT INTO sub_category VALUES (:id, :nom :chemin)";
                         $req = $coPhoto->prepare($query);
                         $req->bindValue(':id','',PDO::PARAM_INT);
                         $req->bindValue(':nom', $nom, PDO::PARAM_STR);

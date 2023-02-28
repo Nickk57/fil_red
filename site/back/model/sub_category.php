@@ -12,7 +12,7 @@ function ajoutSsCategorie(string $name) {
             $category = $_POST['id_category'];
             $photo = $_POST['chemin_picture'];
 
-            $query = "INSERT FROM sub_category VALUES(:name, :chemin_picture, :id_category)";
+            $query = "INSERT INTO sub_category VALUES(:name, :chemin_picture, :id_category)";
             $req = $ssCategorie->prepare($query);
             $req->bindValue(':chemin_picture', $photo, PDO::PARAM_STR);
             $req->bindValue(':id_category', $category, PDO::PARAM_INT);
