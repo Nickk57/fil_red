@@ -85,4 +85,16 @@ body, input, textarea, button, select {
 
 h1, h2, h3, h4 {
   text-transform: uppercase;
+}
+
+.img1 {
+  height: 50px;
+  text-align: center;
+}
+
+tr td {
+  border: 1px solid black;
+}
+tr td a img {
+  text-align: center;
 }/*# sourceMappingURL=style.css.map */

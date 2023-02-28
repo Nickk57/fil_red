@@ -27,7 +27,7 @@ dbConnect();
                 include_once("include/gestion_category.php");
             }
             elseif($page == 3){
-                include_once("");
+                include_once("include/sup_category.php");
             }
             elseif($page == 4){
                 include_once("controllers/ajout_subcategory.php");

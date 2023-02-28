@@ -6,8 +6,7 @@
         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">gestion des categorie</a>
         <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="index.php?page=1">ajout categorie</a></li>
-            <li><a class="dropdown-item" href="index.php?page=2">grestion des categorie</a></li>
-            <li><a class="dropdown-item" href="index.php?page=3">supprimer des categorie</a></li>
+            <li><a class="dropdown-item" href="index.php?page=2">gestion des categorie</a></li>
         </ul>
     </li>
     <li class="nav-item dropdown">

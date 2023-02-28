@@ -1,19 +1,20 @@
 <?php
-function ajoutSsCategorie() {
+function ajoutSsCategorie(string $name) {
     $ssCategorie = dbConnect();
 
     if (isset($_POST['submit'])) {
-        if (isset($_POST['name']) || empty($_POST['name'])) {
+        if (isset($_POST['name']) || empty($_POST['name'])
+        || (isset($_POST['chemin_picture'])) || empty($_POST['chemin_picture'])) {
             echo 'Il faut mettre un nom pour soumettre le formulaire.';
         }
         else {
             $nom = htmlspecialchars($_POST['name']);
             $category = $_POST['id_category'];
-            $photo = $_POST['id_photo'];
+            $photo = $_POST['chemin_picture'];
 
-            $query = "INSERT FROM sub_category VALUES(:name, :idf_photo, :id_category)";
+            $query = "INSERT FROM sub_category VALUES(:name, :chemin_picture, :id_category)";
             $req = $ssCategorie->prepare($query);
-            $req->bindValue(':id_photo', $photo, PDO::PARAM_INT);
+            $req->bindValue(':chemin_picture', $photo, PDO::PARAM_STR);
             $req->bindValue(':id_category', $category, PDO::PARAM_INT);
             $req->bindValue(':name', $nom, PDO::PARAM_STR);
             $reponse = $req->execute();

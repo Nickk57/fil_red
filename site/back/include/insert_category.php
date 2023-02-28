@@ -2,7 +2,7 @@
     include_once('model/category.php');
     ajoutCategory();
 ?>
-<div class="">
+<div class="container">
     <h1>Ajoute une category</h1>
 </div>
 <div class="container">
