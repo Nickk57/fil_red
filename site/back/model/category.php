@@ -1,36 +1,26 @@
 <?php
 
-// function dbConnect()
-// {
-//     $id = 'root';
-//     $mdp = '';
-//     try 
-//     {
-//         $database = new PDO('mysql:host=localhost;dbname=fil_red;charset=utf8',$id,$mdp);
-//         return $database;
-//     }
-//     catch(Exception $e)
-//     {
-//         die('Erreur : '.$e->getMessage());
-//     }
-// }
-
-function ajoutCategory() {
+function ajoutCategory(string $name, string $post) {
     $categorie = dbConnect();
 
-    if(isset($_POST['submit'])) {
-        if(!isset($_POST['name']) || empty($_POST['name'])) {
-            echo 'Il faut mettre un nom pour soumettre le formulaire.';
-        }
-        else{
-            $nom = strip_tags($_POST['name']);
+    $query = "INSERT INTO category (name) VALUES (:name)";
+    $req = $categorie->prepare($query);
+    $reponse = $req->execute([$post, $name]);
+    return ($reponse > 0);
 
-            $query = "INSERT INTO category (name) VALUES (:name)";
-            $req = $categorie->prepare($query);
-            $req->bindValue(':name', $nom, PDO::PARAM_STR);
-            $reponse = $req->execute();
-        }
-    }
+    // if(isset($_POST['submit'])) {
+    //     if(!isset($_POST['name']) || empty($_POST['name'])) {
+    //         echo 'Il faut mettre un nom pour soumettre le formulaire.';
+    //     }
+    //     else{
+    //         $nom = strip_tags($_POST['name']);
+
+    //         $query = "INSERT INTO category (name) VALUES (:name)";
+    //         $req = $categorie->prepare($query);
+    //         $req->bindValue(':name', $nom, PDO::PARAM_STR);
+    //         $reponse = $req->execute();
+    //     }
+    // }
 }
 
 function getionCategorie() {

@@ -3,19 +3,14 @@ function ajoutSsCategorie(string $name) {
     $ssCategorie = dbConnect();
 
     if (isset($_POST['submit'])) {
-        if (isset($_POST['name']) || empty($_POST['name'])
-        || (isset($_POST['chemin_picture'])) || empty($_POST['chemin_picture'])) {
+        if (!isset($_POST['name']) || empty($_POST['name'])) {
             echo 'Il faut mettre un nom pour soumettre le formulaire.';
         }
         else {
-            $nom = htmlspecialchars($_POST['name']);
-            $category = $_POST['id_category'];
-            $photo = $_POST['chemin_picture'];
+            $nom = strip_tags($_POST['name']);
 
-            $query = "INSERT INTO sub_category VALUES(:name, :chemin_picture, :id_category)";
+            $query = "INSERT INTO sub_category (name) VALUES (:name)";
             $req = $ssCategorie->prepare($query);
-            $req->bindValue(':chemin_picture', $photo, PDO::PARAM_STR);
-            $req->bindValue(':id_category', $category, PDO::PARAM_INT);
             $req->bindValue(':name', $nom, PDO::PARAM_STR);
             $reponse = $req->execute();
         }
@@ -24,13 +19,13 @@ function ajoutSsCategorie(string $name) {
 function gestionSsCategorie() {
     $ssCategorie = dbConnect();
 
-    if (isset($_POST['nom']) && !empty($_POST['nom'])) {
-        $nom = htmlspecialchars($_POST['nom']);
+    if (isset($_POST['name']) && !empty($_POST['name'])) {
+        $nom = htmlspecialchars($_POST['name']);
 
-        $query = "SELECT * FROM sub_category WHERE nom = :nom";
+        $query = "SELECT * FROM sub_category WHERE name = :name";
         $req = $ssCategorie->prepare($query);
-        $req->bindValue(':nom', $nom, PDO::PARAM_STR);
-        $req->execute(array("nom" => $nom));
+        $req->bindValue(':name', $nom, PDO::PARAM_STR);
+        $req->execute(array("name" => $nom));
     }
     else {
         $query = "SELECT * FROM sub_category";

@@ -1,20 +1,21 @@
 <?php
 
 require_once('model/category');
-function ajoutCategorie() {
+
+function ajoutCategory(array $input, string $post) {
     $name = null;
     
-    if(isset($input['name'])) {
+    if(empty($input['name'])) {
         $name = $input['name'];
     }
     else {
         throw new Exception('le nomn\'est pas bon !');
     }
-    $success = ajoutCategorie($name);
+    $success = ajoutCategory($name, $post);
     if(!$success) {
         throw new Exception("impossible d'ajoute une category !");
     }
     else {
-        header('location: index.php?page=1')
+        header('location: index.php?action=post&id=' . $post);
     }
 }

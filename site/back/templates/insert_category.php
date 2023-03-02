@@ -1,18 +1,16 @@
-<?php
-    include_once('model/category.php');
-    ajoutCategory();
-?>
+
+<br><br>
 <div class="container">
     <h1>Ajoute une category</h1>
-</div>
+</div><br>
 <div class="container">
-    <form method="POST" action="#">
+    <form method="POST" action="index.php?action=ajout_category&id=<?= $post['identifier']?>">
         <div class="form">
-            <label for="exampleFormControlInput1">Nom</label>
+            <label for="exampleFormControlInput1">Nom de la categorie :</label><br>
             <input class="form-control" type="text" name="name" id="exampleFormControlInput1" required>
         </div>
         <br>
-        <div class="form">
+        <div class="form d-grid gap-2 d-md-flex justify-content-md-end">
             <button type="submit" class="btn btn-success" name="submit">Enregistre la categorie</button>
         </div>
     </form>

@@ -1,28 +1,21 @@
 <?php
 
 require_once('model/sub_category.php');
-require_once('model/ajoutPhSubCategory');
 
-function ajoutSubCategory() {
+function ajoutSubCategory(array $input) {
     $name = null;
-    $namePicture = null;
-    $chemin = null;
 
-    if(!empty($input['name']) && !empty($input['namePicture'])
-    && !empty($_POST['chemin'])) {
+    if(isset($input['name'])) {
         $name = $input['name'];
-        $namePicture = $input['namePicture'];
-        $chemin = $input['chemin'];
     }
     else {
         throw new Exception("Le Fiches n'est pas bon !");
     }
-    $success += ajoutSsCategorie($name);
-    $success += ajoutPhSubCategory($namePicture, $chemin);
+    $success = ajoutSsCategorie($name);
     if (!$success) {
         throw new Exception("Impossible d'ajoute une image !");
     }
     else {
-        header('Location: index.php?page=5');
+        header('Location: index.php?page=4');
     }
 }

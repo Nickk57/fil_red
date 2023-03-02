@@ -14,7 +14,7 @@
         <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="index.php?page=4">ajout des sous-categorie</a></li>
             <li><a class="dropdown-item" href="index.php?page=5">gestion des sous-categorie</a></li>
-            <li><a class="dropdown-item" href="index.php?page=6">supprimer des sous-categorie</a></li>
+            
         </ul>
     </li>
     <li class="nav-item dropdown">
@@ -22,7 +22,7 @@
         <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="index.php?page=7">ajout des produits</a></li>
             <li><a class="dropdown-item" href="index.php?page=8">gestion des produits</a></li>
-            <li><a class="dropdown-item" href="index.php?page=9">supprime les produits</a></li>
+            
         </ul>
     </li>
     <li class="nav-item dropdown">
@@ -30,11 +30,11 @@
         <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="index.php?page=10">ajout des photo</a></li>
             <li><a class="dropdown-item" href="index.php?page=11">gestion des photo</a></li>
-            <li><a class="dropdown-item" href="index.php?page=12">supprime des photo</a></li>
+            
         </ul>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="ajout_admin/ajout_admin.php">S'abonner ></a>
+      <a class="nav-link" href="index.php?page=14">S'abonner ></a>
     </li>
     <li>
         <a class="nav-link" href="ajout_admin/lagout_admin.php">Se deconnect</a>
