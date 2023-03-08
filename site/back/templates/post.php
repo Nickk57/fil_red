@@ -14,4 +14,5 @@
 </div>
 
 <h2></h2>
-<
+<?php ob_get_clean();
+    require('layout.php')?>

@@ -1,10 +1,11 @@
-
+<?php $title = 'Ajout une category';
+    ob_start() ?>
 <br><br>
 <div class="container">
     <h1>Ajoute une category</h1>
 </div><br>
 <div class="container">
-    <form method="POST" action="index.php?action=ajout_category&id=<?= $post['identifier']?>">
+    <form method="POST">
         <div class="form">
             <label for="exampleFormControlInput1">Nom de la categorie :</label><br>
             <input class="form-control" type="text" name="name" id="exampleFormControlInput1" required>
@@ -15,3 +16,5 @@
         </div>
     </form>
 </div>
+<?php $content = ob_get_clean();
+    include('templates/layout.php'); ?>

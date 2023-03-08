@@ -3,19 +3,16 @@ session_start();
 if(!isset($_SESSION["email"])) {
     header("location: templates/connexion_admin.php");
 }
-require_once('controllers/ajout_photos.php');
+require_once('templates/bar_nav.php');
 require_once('model/model.php');
+require_once('controllers/ajout_category.php');
 require_once('templates/layout.php');
+
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 dbConnect();
 ?>
 <body>
-    <?php
-        
-        // $post = getPost();
-        // require_once('templates/homepage.php');
-        require_once('templates/bar_nav.php');
-    ?>
     <?php
         if(isset($_GET['page']) && $_GET['page'] !=NULL) {
             $page = strval($_GET['page']);
