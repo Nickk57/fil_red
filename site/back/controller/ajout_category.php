@@ -11,9 +11,9 @@ function ajoutCategory(array $input) {
     }
     $success = ajoutCategory($name, $post);
     if(!$success) {
-        throw new Exception("impossible d'ajoute une category !");
+        throw new Exception("impossible d'ajoute une categorie !");
     }
     else {
-        require('templates/insert_category.php');
+        header('Location: index.php?page=2');
     }
 }

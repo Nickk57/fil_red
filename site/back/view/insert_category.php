@@ -17,4 +17,4 @@
     </form>
 </div>
 <?php $content = ob_get_clean();
-    include('templates/layout.php'); ?>
+    include_once('templates/layout.php') ?>

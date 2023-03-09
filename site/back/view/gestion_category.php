@@ -1,4 +1,7 @@
 <div class="container"><br>
+    <div class="col d-grid gap-2 d-md-flex justify-content-md-end">
+        <buttom role="button" class="btn btn-success" name=""><a href="index.php?page=1" class="text-light">Ajout une categorie</a></buttom>
+    </div>
     <h1>Gestion des categorie :</h2>
     <table class="table">
         <div class="container">
@@ -8,7 +11,7 @@
             $req = dbConnect()->prepare($query);
             $req->bindValue(':name', PDO::PARAM_STR);
             $req->execute();
-            
+
             while($do = $req->fetch()) {
                 echo '
                     <tr>

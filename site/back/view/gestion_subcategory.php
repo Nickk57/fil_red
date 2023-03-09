@@ -1,6 +1,9 @@
 <div class="container">
     <div class="table table-dark">
         <div class="container">
+            <div class="col d-grid gap-2 d-md-flex justify-content-md-end">
+                <buttom role="button" class="btn btn-success" name=""><a href="index.php?page=4" class="text-light">Ajout une categorie</a></buttom>
+            </div>
             <?php
             $onclick = 'onclick="return(confirm("Voulez-vous supprimer ces category ?"))';
             $query = "SELECT * FROM sub_category";
