@@ -47,6 +47,7 @@
             return $this->_route;
         }
         public function run($config) {
+            $this->bindParam(); 
             $this->_route->run($this,$config);
         }
         public function addParam($value) {

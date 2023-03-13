@@ -3,7 +3,9 @@
         "Framework",
         "controller",
         "Model",
-        "Framework/Exception"
+        "Framework/Exception",
+        "Model/Manager",
+        "Model/Entite"
     ],
     "database": {
         "name" : "Ma base de données",
