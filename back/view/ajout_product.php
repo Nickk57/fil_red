@@ -55,24 +55,16 @@
             <input type="file" name="picture" class="form-control" id="formFile">
         </div><br>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option5" name="mouture">
-            <label class="form-check-label" for="inlineCheckbox1">Espresso</label>
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="250G" name="weight">
+            <label class="form-check-label" for="inlineCheckbox1">250G</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option6" name="mouture">
-            <label class="form-check-label" for="inlineCheckbox2">Filtre</label>
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="500G" name="weight">
+            <label class="form-check-label" for="inlineCheckbox2">500G</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option7" name="mouture">
-            <label class="form-check-label" for="inlineCheckbox3">Grain</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option8" name="mouture">
-            <label class="form-check-label" for="inlineCheckbox4">Italienne</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option9" name="mouture">
-            <label class="form-check-label" for="inlineCheckbox5">Piston</label>
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="1Kg" name="weight">
+            <label class="form-check-label" for="inlineCheckbox3">1Kg</label>
         </div>
         <div class="form d-grid gap-2 d-md-flex justify-content-md-end">
             <button type="submit" class="btn btn-success" name="submit">Enregistre le produit</button>

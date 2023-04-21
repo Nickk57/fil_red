@@ -87,16 +87,13 @@ if(!isset($_SESSION["email"])) {
                 select_subcategory();
             }
             elseif($page == 19){
-                include_once('controller/ajout_weight.php');
-                ajout_weight();
+                
             }
             elseif($page == 20){
-                include_once('controller/gestion_weight.php');
-                gestion_weight();
+                
             }
             elseif($page == 21){
-                include_once('controller/sup_weight.php');
-                sup_weight();
+                
             }
             elseif($page == 22) {
                 include_once('controller/ajout_kindgrind.php');
@@ -115,8 +112,7 @@ if(!isset($_SESSION["email"])) {
                 sup_kindgrind();
             }
             elseif($page == 26) {
-                include_once('controller/modific_weight.php');
-                select_weight();
+                
             }
             elseif($page == 27) {
                 include_once('controller/gestion_admin.php');

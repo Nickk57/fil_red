@@ -9,6 +9,10 @@
             <tr>
                 <th>Nom</th>
                 <th>Photos</th>
+                <th>Prix</th>
+                <th>Description</th>
+                <th>Option</th>
+                <th>Mouture</th>
                 <th class="text-center">Modifie</th>
                 <th class="text-center">Supprimer</th>
             </tr>
@@ -20,6 +24,24 @@
                         <td><?= $product['name'] ?></td>
                         <td>
                             <img src="<?= $product['path'] ?>" class="images1">
+                        </td>
+                        <td>
+                            <?= $product['price']?>
+                        </td>
+                        <td>
+                            <?= $product['description']?>
+                        </td>
+                        <td>
+                            <ul>
+                                <li><?=$product['compostion']?></li>
+                                <li><?=$product['come_from']?></li>
+                                <li><?=$product['coffee']?></li>
+                                <li><?=$product['roast']?></li>
+                                <li><?=$product['forest']?></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <?=$product['mouture']?>
                         </td>
                         <td class="text-center col-1">
                             <a href="index.php?page=17&id=<?=$product['id']?>"><i class="fa fa-gaer fa-2x" title="Modifier" style="color: orange;"><img src="images/roue de param.png" class="img1"></i></a>

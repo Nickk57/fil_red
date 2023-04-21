@@ -4,7 +4,6 @@
     <a class="nav-link" href="index.php?page=5">gestion des sous-category</a>
     <a class="nav-link" href="index.php?page=8">gestion des produits</a>
     <a class="nav-link" href="index.php?page=11">gestion des photos</a>
-    <a class="nav-link" href="index.php?page=20">gestion des poids</a>
     <a class="nav-link" href="index.php?page=23">gestion des mouture</a>
     <a class="nav-link" href="index.php?page=27">gestion des admin</a>
     <a class="nav-link" href="index.php?page=14">Se déconnect</a>

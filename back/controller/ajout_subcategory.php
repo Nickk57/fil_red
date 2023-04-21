@@ -1,8 +1,10 @@
 <?php
 require_once('model/ajout_subcategory.php');
-$success = '';
 
 function ajout_subcategory() {
+
+    $success = '';
+    $category = selectCategory();
 
     if(isset($_POST['submit'])) {
         $success = ajoutSubCategory();

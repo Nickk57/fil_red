@@ -9,7 +9,6 @@
             <tr>
                 <th>Nom</th>
                 <th class="text-center">Images</th>
-                <th class="text-center">Modifie</th>
                 <th class="text-center">Supprimer</th>
             </tr>
         </head>
@@ -22,13 +21,6 @@
                     </td>
                     <td class="text-center col-auto align-middle">
                         <img src="<?= $picture['path'] ?>"class="images1">
-                    </td>
-                    <td class="text-center col-1 align-middle">
-                        <a href="index.php?page=16&id=<?=$picture['id']?>">
-                            <i class="fa fa-gear fa-2x" title="Modifier" style="color: orange;">
-                                <img src="images/roue de param.png" class="img1">
-                            </i>
-                        </a>
                     </td>
                     <td class="text-center col-1 align-middle">
                         <a href="index.php?page=12&id=<?=$picture['id']?>" onclick="return(confirm('Voulez-vous supprimer cette category ?'))">
