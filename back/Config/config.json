@@ -1,0 +1,18 @@
+{
+    "autoloadFolder": [
+        "Framework",
+        "controller",
+        "Model",
+        "Framework/Exception",
+        "Model/Manager",
+        "Model/Entite"
+    ],
+    "database": {
+        "name" : "Ma base de données",
+        "dbname" : "database",
+        "host" : "localhost",
+        "user" : "user",
+        "password" : ""
+    },
+    "basepath" : "/back"
+}

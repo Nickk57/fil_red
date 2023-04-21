@@ -1,0 +1,88 @@
+.variant-selectors__swatches {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  margin-bottom: 25px;
+  margin-left: -7px;
+  margin-right: -7px;
+}
+
+img {
+  overflow-clip-margin: content-box;
+  overflow: clip;
+}
+
+label[for] {
+  cursor: pointer;
+}
+
+* {
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+  box-sizing: border-box;
+}
+
+.product-page > .top-area .right-area .inner .variant-selectors .variant-selectors__swatches label img {
+  height: 23px;
+  vertical-align: -6px;
+  margin-right: 15px;
+}
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+.product-page > .top-area .right-area .inner .variant-selectors {
+  width: 100%;
+  position: relative;
+  margin-bottom: 70px;
+}
+
+.product-page > .top-area .right-area .inner .variant-selectors .variant-selectors__header {
+  font-size: 16px;
+  color: #1f2a44;
+  font-family: Belleville, sans-serif;
+  margin-bottom: 0;
+}
+
+div.variant-selectors p.variant-selectors__header {
+  text-align: left;
+}
+
+.product-page > .top-area .right-area .inner .variant-selectors .variant-selectors__swatches input[type=radio] {
+  display: none;
+}
+
+input[type=checkbox], input[type=radio] {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+input, textarea, select {
+  border-radius: 0;
+  font-size: 18px;
+  font-family: Belleville, sans-serif;
+}
+
+input, select {
+  vertical-align: middle;
+}
+
+body, input, textarea, button, select {
+  color: #4d4d4f;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+}
+
+h1, h2, h3, h4 {
+  text-transform: uppercase;
+}/*# sourceMappingURL=style.css.map */
