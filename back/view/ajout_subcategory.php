@@ -11,9 +11,9 @@
             <input type="text" name="name" id="exampleFormControlInput1" class="form-control" require>
         </div><br>
         <div class="form">
-            <select>
+            <select class="col-3" name="id_category">
                 <?php foreach($category as $cate){?>
-                    <option value="<?=$cate['id']?>" name="id_category"><?=$cate['name']?></option>
+                    <option value="<?=$cate['id']?>"><?=$cate['name']?></option>
                 <?php } ?>
             </select>
         </div>

@@ -8,8 +8,16 @@
         <div class="form">
             <label for="exampleInputNom1">Nom</label></td>
             <input type="text" name="name" class="form-control" id="exampleInputNom1" aria-describedby="Nom" value="<?=$subCategory['name']?>"></td>
+        </div><br>
+        <div class="form">
+            <label for="">Photo :</label>
+            <input type="text" value="<?$subCategory['name']?>">
+            <div class="col">
+                <?php foreach($gest_picture as $picture) {?>
+                    <img src="<?= $picture['path']?>">
+                <?php } ?>
+            </div>
         </div>
-        <br>
         <div class="form d-grid gap-2 d-md-flex justify-content-md-end">
             <button class="btn btn-success" type="submit" name="submit">Valides</button>
         </div>
