@@ -99,20 +99,20 @@ if(!isset($_SESSION["email"])) {
                 sup_weight();
             }
             elseif($page == 22) {
-                include_once('controller/ajout_kindgrind.php');
-                ajout_kindgrind();
+                include_once('controller/ajout_region.php');
+                ajout_region();
             }
             elseif($page == 23) {
-                include_once('controller/gestion_kindgrind.php');
-                gestion_kindgrind();
+                include_once('controller/gestion_region.php');
+                gestion_region();
             }
             elseif($page == 24) {
-                include_once('controller/modific_kindgrind.php');
-                select_kindgrind();
+                include_once('controller/modific_region.php');
+                select_region();
             }
             elseif($page == 25) {
-                include_once('controller/sup_kindgrind.php');
-                sup_kindgrind();
+                include_once('controller/sup_region.php');
+                sup_region();
             }
             elseif($page == 26) {
                 include_once('controller/modific_weight.php');

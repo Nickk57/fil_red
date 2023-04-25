@@ -24,7 +24,7 @@
         </div><br>
         <div class="form">
             <label for="exampleFormControlSelect1" class="form-label">la region :</label><br>
-            <select class="col-3 text1" name="" id="">
+            <select class="col-3 text1" name="region" id="region">
                 <?php foreach($sel_region as $region){?>
                     <option value="<?=$region['id']?>"><?=$region['name']?></option>
                 <?php } ?>

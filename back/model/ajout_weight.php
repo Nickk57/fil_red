@@ -12,7 +12,6 @@ function ajoutWeight() {
         $req = dbConnect()->prepare($query);
         $req->bindValue(':name', $name, PDO::PARAM_STR);
         $reponse = $req->execute();
-        var_dump($reponse);
 
         if ($reponse > 0) {
             $success = 'le poid à étais ajouter.';

@@ -2,7 +2,7 @@
 
 function gestionWeight() {
 
-    $query = 'SELECT * FROM product_weight';
+    $query = 'SELECT * FROM weight';
     $req = dbConnect()->prepare($query);
     $req->execute();
     $gest_weight = $req->fetchAll();
