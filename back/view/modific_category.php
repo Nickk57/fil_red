@@ -1,6 +1,6 @@
 <?php ob_start() ?>
 <br>
-<div class="conatiner">
+<div class="conatiner text-center">
     <h1>Modification des categorie</h1>
 </div><br>
 <div class="container">

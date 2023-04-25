@@ -13,8 +13,8 @@
             <label for="">Photo :</label>
             <input type="text" value="<?$subCategory['name']?>">
             <div class="col">
-                <?php foreach($gest_picture as $picture) {?>
-                    <img src="<?= $picture['path']?>">
+                <?php foreach($subCategory as $subCate) {?>
+                    <img src="<?= $subCate['path']?>">
                 <?php } ?>
             </div>
         </div>

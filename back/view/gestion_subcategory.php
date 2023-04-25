@@ -8,6 +8,7 @@
         <head>
             <tr>
                 <th>Nom</th>
+                <th>Photo</th>
                 <th class="text-center">Modifie</th>
                 <th class="text-center">Supprimer</th>
             </tr>
@@ -19,8 +20,11 @@
                     <td>
                         <?= $subCateg['name'] ?>
                     </td>
+                    <td>
+                        <img src="<?= $subCateg['path']?>">
+                    </td>
                     <td class="text-center col-2">
-                        <a href="index.php?page=18&id=<?=$subCateg['id']?>">
+                        <a href="index.php?page=18&id=<?=$subCateg['id']?>&id_picture=<?$subCateg['id_picture']?>">
                             <i class="fa fa-gear fa-2x" title="Modifier" style="color: orange;">
                                 <img src="images/roue de param.png" class="img1">
                             </i>

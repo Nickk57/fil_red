@@ -10,7 +10,6 @@ function supCategory() {
         $req = dbConnect()->prepare($query);
         $req->bindValue(':id', $id, PDO::PARAM_INT);
         $req->execute();
-        var_dump($req);
         $msg = " la categorie est supprimer !";
     }    
 }
