@@ -11,6 +11,7 @@
         </div><br>
         <div class="form d-grid gap-2 d-md-flex justify-content-md-end">
             <button class="btn btn-success" type="submit" name="submit">Valides</button>
+            <a href="index.php?page=2"><button class="btn btn-dark" type="button" name="retour">Retour</button></a>
         </div>
     </form>
 </div>

@@ -11,6 +11,7 @@
         </div><br>
         <div class="form d-grid gap-2 d-md-flex justify-content-md-end">
             <button class="btn btn-success" type="submit" name="submit">Valides</button>
+            <button class="btn" type="button" name="retour">Retour</button>
         </div>
     </form>
 </div>

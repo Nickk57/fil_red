@@ -7,35 +7,38 @@ function selectSubCategory() {
     $subCategory = $req->fetchAll();
     return $subCategory;
 }
+function selectRegion() {
+    $query = "SELECT * FROM region";
+    $req = dbConnect()->prepare($query);
+    $req->execute();
+    $sel_region = $req->fetchAll();
+    return $sel_region;
+}
+function selectWeight() {
+    $query = "SELECT * FROM weight";
+    $req = dbConnect()->prepare($query);
+    $req->execute();
+    $sel_weight = $req->fetchAll();
+    return $sel_weight;
+}
 
 function ajoutPicture_product() {
-    if (!isset($_POST['name']) || empty($_POST['name'])
-    || !isset($_POST['prix']) || empty($_POST['prix'])
-    || !isset($_POST['description']) || empty($_POST['description'])
-    || !isset($_POST['composition']) || empty($_POST['composition'])
-    || !isset($_POST['come_from']) || empty($_POST['come_from'])
-    || !isset($_POST['coffee']) || empty($_POST['coffee'])
-    || !isset($_POST['roast']) || empty($_POST['roast'])
-    || !isset($_POST['forest']) || empty($_POST['forest'])
-    || !isset($_POST['weight']) || empty($_POST['weight'])
-    || !isset($_POST['namePicture']) || empty($_POST['namePicture'])
-    || !isset($_FILES['picture']) || empty($_FILES['picture'])) {
+    if (!isset($_POST['name']) || empty($_POST['name'])) {
         $success = "Il faut un nom et une image pour validé !";
         return $success;
     }
     else {        
         $name = strip_tags($_POST['name']);
-        $prix = strip_tags($_POST['price']);
         $description = strip_tags($_POST['description']);
-        $composition = strip_tags($_POST['composition']);
-        $provient = strip_tags($_POST['come_from']);
-        $torrefateur = strip_tags($_POST['coffee']);
-        $torrefie = strip_tags($_POST['roast']);
-        $forets = strip_tags($_POST['forest']);
-        $weight = strip_tags($_POST['weight']);
-        $id_categ = strip_tags($_POST['id_subcategory']);
+        $prix = strip_tags($_POST['price']);
+        $character = strip_tags($_POST['character']);
+        $flavour = strip_tags($_POST['flavour']);
+        $cooperative = strip_tags($_POST['cooperative']);
         $namePicture = strip_tags($_POST['namePicture']);
-        $pictureCh = strip_tags($_POST['picture']);
+        $id_subcategory = strip_tags($_POST['subcategory']);
+        $id_region = strip_tags($_POST['region']);
+        $id_weight = strip_tags($_POST['weight']);
+        
 
         if (isset($_FILES['picture']) && $_FILES['picture']['error'] == 0) {
             if ($_FILES['picture']['size'] <= 1000000) {
@@ -48,9 +51,10 @@ function ajoutPicture_product() {
                     $photo = 'uploads/'. basename($_FILES['picture']['name']);
                     echo "L'envoi a bien été effectué !";
                     $pictureCh = strip_tags('uploads/'. $_FILES['picture']['name']);
-                    ajoutPictureBDD($name, $prix, $description, $composition, 
-                    $provient, $torrefateur, $torrefie, $forets, $weight, 
-                    $id_categ, $namePicture, $pictureCh);
+                    ajoutProduct($name, $description, $prix, $character, 
+                    $flavour, $cooperative, $id_subcategory, $id_region, 
+                    $id_weight, $namePicture, $pictureCh);
+                    
                 }
                 else {
                     echo "Le format de fichier n'est pas autorisée. Merci de n'envoyer que des fichers en (.jpg, .jpeg, .png, .gif)";
@@ -70,42 +74,43 @@ function ajoutPicture_product() {
 }
 
 
-    function ajoutProduct($name, $prix, $description, $composition, $provient, 
-    $torrefateur, $torrefie, $forets, $weight, $id_categ, $namePicture, $pictureCh){
+    function ajoutProduct($name, $description, $prix, $character, 
+    $flavour, $cooperative, $id_subcategory, $id_region, 
+    $id_weight, $namePicture, $pictureCh){
         
-        $query = "INSERT INTO product (name, price, description, composition, come_form, 
-        coffee, roast, forest, weight, id_subcategory) VALUES (:name, :price, :desciption, 
-        :composition, :come_form, :coffee, :roast, :forest, :weight, :id_subcategory)";
-
+        $query = "INSERT INTO product (name, description, price, characte, flavour, cooperative, 
+        id_subcategory, id_region, id_weight) VALUES (:name, :description, :price, 
+        :characte, :flavour, :cooperative, id_subcategory, :id_region, :id_weight)";
+        
         $req = dbConnect()->prepare($query);
+        var_dump($req);
         $req->bindValue(':name', $name, PDO::PARAM_STR);
-        $req->bindValue(':price', $prix);
         $req->bindValue(':description', $description, PDO::PARAM_STR);
-        $req->bindValue(':composition', $composition, PDO::PARAM_STR);
-        $req->bindValue(':come_form', $provient, PDO::PARAM_STR);
-        $req->bindValue(':coffee', $torrefateur, PDO::PARAM_STR);
-        $req->bindValue(':roast', $torrefie, PDO::PARAM_STR);
-        $req->bindValue(':forest', $forets, PDO::PARAM_STR);
-        $req->bindValue(':weight', $weight, PDO::PARAM_STR);
-        $req->bindValue(':id_category', $id_categ, PDO::PARAM_STR);
+        $req->bindValue(':price', $prix);
+        $req->bindValue(':character', $character, PDO::PARAM_STR);
+        $req->bindValue(':flavour', $flavour, PDO::PARAM_STR);
+        $req->bindValue(':cooperative', $cooperative, PDO::PARAM_STR);
+        $req->bindValue(':id_subcategory', $id_subcategory, PDO::PARAM_INT);
+        $req->bindValue(':id_region', $id_region, PDO::PARAM_INT);
+        $req->bindValue(':id_weight', $id_weight, PDO::PARAM_INT);
         $req->execute();
-
+        
         $query = "SELECT id FROM product ORDER BY id DESC LIMIT 1";
         $req = dbConnect()->prepare($query);
         $req->bindValue(':name', $name, PDO::PARAM_STR);
         $req->execute();
         $productID = $req->fetch();
-        AjoutPictureBDD($name, $productID[0], $pictureCh);
+        AjoutPictureBDD($namePicture, $productID[0], $pictureCh);
     }
 
 
 
-function ajoutPictureBDD($name, $productID, $pictureCh) {
+function ajoutPictureBDD($namePicture, $productID, $pictureCh) {
     
     $query = 'INSERT INTO picture (name, path, id_product) 
     VALUES (:name, :path, :id_product)';
     $req = dbConnect()->prepare($query);
-    $req->bindValue(':name', $name, PDO::PARAM_STR);
+    $req->bindValue(':name', $namePicture, PDO::PARAM_STR);
     $req->bindValue(':path', $pictureCh, PDO::PARAM_STR);
     $req->bindValue(':id_product', $productID, PDO::PARAM_INT);
     $reponse = $req->execute();
