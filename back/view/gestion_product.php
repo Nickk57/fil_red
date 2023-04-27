@@ -12,7 +12,7 @@
                 <th>Prix</th>
                 <th>Description</th>
                 <th>Option</th>
-                <th>Mouture</th>
+                <th>Coopérative</th>
                 <th class="text-center">Modifie</th>
                 <th class="text-center">Supprimer</th>
             </tr>
@@ -23,7 +23,9 @@
                     <tr>
                         <td><?= $product['name'] ?></td>
                         <td>
-                            <img src="<?= $product['path'] ?>" class="images1">
+                            <?php foreach(getPicturesByIdProduct($product['id']) as $pict) {?>
+                                <img src="<?=$pict['path']?>" class="images1">
+                            <?php } ?>
                         </td>
                         <td>
                             <?= $product['price']?>
@@ -33,15 +35,12 @@
                         </td>
                         <td>
                             <ul>
-                                <li><?=$product['compostion']?></li>
-                                <li><?=$product['come_from']?></li>
-                                <li><?=$product['coffee']?></li>
-                                <li><?=$product['roast']?></li>
-                                <li><?=$product['forest']?></li>
+                                <li><?=$product['characte']?></li>
+                                <li><?=$product['flavour']?></li>
                             </ul>
                         </td>
                         <td>
-                            <?=$product['mouture']?>
+                            <?=$product['cooperative']?>
                         </td>
                         <td class="text-center col-1">
                             <a href="index.php?page=17&id=<?=$product['id']?>"><i class="fa fa-gaer fa-2x" title="Modifier" style="color: orange;"><img src="images/roue de param.png" class="img1"></i></a>

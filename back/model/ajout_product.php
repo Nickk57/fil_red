@@ -31,7 +31,7 @@ function ajoutPicture_product() {
         $name = strip_tags($_POST['name']);
         $description = strip_tags($_POST['description']);
         $prix = strip_tags($_POST['price']);
-        $character = strip_tags($_POST['character']);
+        $character = strip_tags($_POST['characte']);
         $flavour = strip_tags($_POST['flavour']);
         $cooperative = strip_tags($_POST['cooperative']);
         $namePicture = strip_tags($_POST['namePicture']);
@@ -77,17 +77,17 @@ function ajoutPicture_product() {
     function ajoutProduct($name, $description, $prix, $character, 
     $flavour, $cooperative, $id_subcategory, $id_region, 
     $id_weight, $namePicture, $pictureCh){
-        
+
         $query = "INSERT INTO product (name, description, price, characte, flavour, cooperative, 
         id_subcategory, id_region, id_weight) VALUES (:name, :description, :price, 
-        :characte, :flavour, :cooperative, id_subcategory, :id_region, :id_weight)";
+        :characte, :flavour, :cooperative, :id_subcategory, :id_region, :id_weight)";
         
         $req = dbConnect()->prepare($query);
-        var_dump($req);
+        
         $req->bindValue(':name', $name, PDO::PARAM_STR);
         $req->bindValue(':description', $description, PDO::PARAM_STR);
         $req->bindValue(':price', $prix);
-        $req->bindValue(':character', $character, PDO::PARAM_STR);
+        $req->bindValue(':characte', $character, PDO::PARAM_STR);
         $req->bindValue(':flavour', $flavour, PDO::PARAM_STR);
         $req->bindValue(':cooperative', $cooperative, PDO::PARAM_STR);
         $req->bindValue(':id_subcategory', $id_subcategory, PDO::PARAM_INT);

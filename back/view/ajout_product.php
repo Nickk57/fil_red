@@ -12,7 +12,8 @@
         </div><br>
         <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">€</span>
-            <input class="form-control" type="text" name="price" placeholder="Prix" aria-label="Prix" aria-describedby="basic-addon1">
+            <input class="form-control" type="text" name="price" placeholder="Prix" aria-label="Prix" aria-describedby="basic-addon1" id="exampleFormControlInput1">
+            <span class="input-group-text">0.00</span>
         </div><br>
         <div class="form">
             <label for="exampleFormControlSelect1" class="form-label">sous-categorie :</label><br>
@@ -36,7 +37,7 @@
         </div><br>
         <div class="form">
             <label for="exampleFormControlInput1" class="form-label">Caractère</label>
-            <input class="form-control" id="exampleFormControlInput1" name="character">
+            <input class="form-control" id="exampleFormControlInput1" name="characte">
         </div><br>
         <div class="form">
             <label for="exampleFormControlInput1" class="form-label">Saveurs</label>

@@ -7,8 +7,8 @@ function ajout_product() {
     $sel_region = selectRegion();
     $sel_weight = selectWeight();
     
-    if(!isset($_POST['submit'])) {
-
+    if(isset($_POST['submit'])) {
+        
         $success = ajoutPicture_product();
     }
 
